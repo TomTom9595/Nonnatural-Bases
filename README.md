@@ -32,5 +32,7 @@ with mismatches:
 
 ## Placement of non natural bases
 To figure out where we should place the nonnatural bases I am doing the following:
-- Create lots of different strands with partial random sequence but all binding to the toehold and simulate interaction
+- Create lots of different strands with mostly random sequence but all including a complementary domain to the toehold and simulate interaction
 - Take top 1% of interacting strands and place mismatches at each position of the toehold and simulate the interaction again
+
+With this I would like to see the difference in ddG depending on the mismatch / non natural base position
