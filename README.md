@@ -37,7 +37,29 @@ To figure out where we should place the nonnatural bases I am doing the followin
 
 With this I would like to see the difference in ddG depending on the mismatch / non natural base position
 
-The code I use for that:
+The code I use to create random strands incljding the complementary toehold domain:
+
+```python
+import random
+Bases = ["A","C","G","T"]
+with open('F2Interaction.txt', 'a') as fp:
+    for j in range(0,300000):
+        for i in range(0,40):
+            fp.write(str(random.choice(Bases)))
+        fp.write("AGAGA")
+        for i in range(45,50):
+            fp.write(str(random.choice(Bases)))
+        fp.write("\n")
+    fp.close()
+```
+
+
+```python
+
+```
+
+
+The code I use for analysis:
 
 ```python
 # Header
