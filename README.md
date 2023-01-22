@@ -32,32 +32,25 @@ with mismatches:
 
 ## Placement of non natural bases
 To figure out where we should place the nonnatural bases I am doing the following:
-- Create lots of different strands with mostly random sequence but all including a complementary domain to the toehold and simulate interaction
-- Take top 1% of interacting strands and place mismatches at each position of the toehold and simulate the interaction again
+- Create lots of different strands with random sequence and simulate interaction.
+- Take top 1% of interacting strands and place mismatches at each position of the toehold and simulate the interaction again.
 
-With this I would like to see the difference in ddG depending on the mismatch / non natural base position
+The problem with this is, that the random strand could create a different secondary strucutre to form a basepair with the "mismatch" which is not possible with non-natural bases, however it should give us an idea, as I filtered the best matches before which tend to not alter their overall interaction with the invader strand.
 
-The code I use to create random strands incljding the complementary toehold domain:
+
+
+The code I use to create random strands:
 
 ```python
 import random
 Bases = ["A","C","G","T"]
-with open('F2Interaction.txt', 'a') as fp:
-    for j in range(0,300000):
-        for i in range(0,40):
-            fp.write(str(random.choice(Bases)))
-        fp.write("AGAGA")
-        for i in range(45,50):
+with open('N50.txt', 'a') as fp:
+    for j in range(0,100000):
+        for i in range(0,50):
             fp.write(str(random.choice(Bases)))
         fp.write("\n")
     fp.close()
 ```
-
-
-```python
-
-```
-
 
 The code I use for analysis:
 
@@ -74,7 +67,7 @@ Model1 = Model(material='dna04', ensemble='some-nupack3', celsius=25, sodium=0.0
 ```python
 # Import strands
 Strands_list = []
-Interfering = open("F2Interaction.txt")
+Interfering = open("N50.txt")
 for line in Interfering:
     Strands_list.append(line.rstrip())
 Interfering.close()
@@ -100,20 +93,20 @@ results.close()
 
 
 ```python
-# Create a list only containing the ddG 
+# Create one list only containing the ddG and one for the secondary structure
 with open("Results.txt") as Results:
     lines = Results.readlines()
 ddGList = lines[2::5]
+structuresList = lines[3::5]
 
 ddG = open("ddG.txt", 'a')
+structures = open("structures.txt", 'a')
 
 for i in ddGList:
     ddG.write(str(i))
 ddG.close()
-    
-```
 
-
-```python
-
+for i in structuresList:
+    structures.write(str(i))
+structures.close()
 ```
