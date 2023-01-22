@@ -110,3 +110,37 @@ for i in structuresList:
     structures.write(str(i))
 structures.close()
 ```
+
+The following table shows how many bases of the toehold are occluded for the original sequence of F2 (upper) and the strands where I introduced another base at a certain position of the toehold. I simulated interaction with 100,000 strands of a random pool of length 50 (N50) and took the 1,000 strands with the strongest interaction for further analysis.
+
+The code I use to count the occluded bases of the toehold:
+
+```python
+with open("structures.txt") as structures:
+    lines = structures.readlines()
+    
+occluded = []
+
+for i in lines:
+    toe = str(i[81:86])
+    occluded.append(toe.count(')'))
+structures.close()
+```
+
+
+The position of the mismatch is counted begging from the 3' end.
+Even though this is definitely not the best way for simulating the interaction with a non-natural base at a certain position, it supports the naive approach to place the non-natural base in the middle of the toehold (position 3) as this lowers the amount of random pool strands that bind 4 or 5 bases (in reality 5 is no longer possible with the non natural base). There is also an argument for positon 4, as it shows the highest proportion of strands with a completely free toehold. I actually do not see why this is the case and have to go into more detail.
+
+|          | Zero | One | Two | Three | Four | Five |
+| -------- | ---- | --- | --- | ----- | ---- | ---- |
+| Original | 645  | 29  | 83  | 161   | 41   | 41   |
+| MM pos 1 | 646  | 28  | 92  | 190   | 15   | 29   |
+| MM pos 2 | 654  | 35  | 70  | 179   | 62   | 0    |
+| MM pos 3 | 756  | 41  | 115 | 60    | 21   | 7    |
+| MM pos 4 | 824  | 0   | 85  | 43    | 33   | 15   |
+| MM pos 5 | 766  | 76  | 64  | 52    | 37   | 5    |
+
+![image](https://user-images.githubusercontent.com/110489104/213924436-8632ff0e-01d6-4f46-8463-bfbcb5752843.png)
+
+I think that we should first try one version of the F2 strand to directly invade the reporter (maybe position 3) and how it behaves with the random pool (different concentrations, lengths and pre-equilibrated, as well as a direct start after mixing everything together) as it is much easier to analayze a one-step reaction. However, we would have to get the reporter with a non-natural base, too.
+I guess for the whole cascade it would be best, to use the non-natural base in the step which takes the longest, as the random strands have "more time to interact with the invader" and find good matches. Using non-natural bases in each step could be very expensive I guess
