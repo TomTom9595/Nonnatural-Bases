@@ -35,7 +35,7 @@ To figure out where we should place the nonnatural bases I am doing the followin
 - Create lots of different strands with random sequence and simulate interaction.
 - Take top 1% of interacting strands and place mismatches at each position of the toehold and simulate the interaction again.
 
-The problem with this is, that the random strand could create a different secondary strucutre to form a basepair with the "mismatch" which is not possible with non-natural bases, however it should give us an idea, as I filtered the best matches before which tend to not alter their overall interaction with the invader strand.
+The problem with this is, that the random strand could create a different secondary strucutre to form a basepair with the "mismatch" which is not possible with non-natural bases, however it should give us an idea. However, it is not trival for me, how I can simulate interactions without having this problem. (Just deleting the base is also not a good option)
 
 
 
