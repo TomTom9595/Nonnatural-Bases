@@ -144,3 +144,10 @@ Even though this is definitely not the best way for simulating the interaction w
 
 I think that we should first try one version of the F2 strand to directly invade the reporter (maybe position 3) and how it behaves with the random pool (different concentrations, lengths and pre-equilibrated, as well as a direct start after mixing everything together) as it is much easier to analayze a one-step reaction. However, we would have to get the reporter with a non-natural base, too.
 I guess for the whole cascade it would be best, to use the non-natural base in the step which takes the longest, as the random strands have "more time to interact with the invader" and find good matches. Using non-natural bases in each step could be very expensive I guess
+
+## Experimental Considerations
+### Nonnatural Base-pair to use:
+    1. Based on what what the Marchand Lab can/will do
+    2. isoC/isoG pair (orthogonak hydrogen bonding pattern to standard base pairs)
+        - https://academic.oup.com/nar/article/32/6/1937/1111542
+        - https://www.idtdna.com/site/Catalog/Modifications/Product/2039
