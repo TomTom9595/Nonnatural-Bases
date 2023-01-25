@@ -151,3 +151,4 @@ I guess for the whole cascade it would be best, to use the non-natural base in t
     2. isoC/isoG pair (orthogonak hydrogen bonding pattern to standard base pairs)
         - https://academic.oup.com/nar/article/32/6/1937/1111542
         - https://www.idtdna.com/site/Catalog/Modifications/Product/2039
+     - This pair amoung others are described here: https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-020-00803-6
